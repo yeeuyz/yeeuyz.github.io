@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局 · 带id的部件</title>
+	
+    <!-- 每 5 秒刷新一次 -->
+    <meta http-equiv="refresh" content="60">
+
+    <style>
+        /* 全局重置与基础样式 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            padding: 1.5rem;
+        }
+
+        /* 卡片式容器：更宽，适应16:9屏幕的有效区域 */
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: min(90vw, 1400px);
+            max-width: 1400px;
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* 每一行都是 flex 容器 */
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* 让所有行内元素高度一致 */
+        .row > * {
+            height: 52px;
+            line-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 文本显示部件 */
+        .text-display {
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 0 1.5rem;
+            font-weight: 500;
+            color: #0f172a;
+            font-size: 1.1rem;
+            flex: 1;
+            height: 52px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* 正方形按钮：灰色，无图案 */
+        .square-btn {
+            width: 52px;
+            height: 52px;
+            background: #e2e8f0;
+            color: transparent;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            font-size: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.08);
+            transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+            flex-shrink: 0;
+            line-height: 1;
+            padding: 0;
+            outline: none;
+        }
+
+        /* 第2行按钮1：#E52421 */
+        #squareBtn1 {
+            background: #e2e8f0;
+        }
+        #squareBtn1:hover {
+            background: #c9302c;
+        }
+        #squareBtn1:active {
+            background: #b21f1c;
+        }
+        
+        /* 第2行按钮2：#E52421 */
+        #squareBtn2 {
+            background: #e2e8f0;
+        }
+        #squareBtn2:hover {
+            background: #c9302c;
+        }
+        #squareBtn2:active {
+            background: #b21f1c;
+        }
+        
+        /* 第3行按钮1：#FFB600 */
+        #squareBtn3 {
+            background: #FFB600;
+        }
+        #squareBtn3:hover {
+            background: #e6a500;
+        }
+        #squareBtn3:active {
+            background: #cc9300;
+        }
+        
+        /* 第3行按钮2：#FFB600 */
+        #squareBtn4 {
+            background: #e2e8f0;
+        }
+        #squareBtn4:hover {
+            background: #e6a500;
+        }
+        #squareBtn4:active {
+            background: #cc9300;
+        }
+        
+        /* 第4行按钮1：#00E54A */
+        #squareBtn5 {
+            background: #e2e8f0;
+        }
+        #squareBtn5:hover {
+            background: #00cc42;
+        }
+        #squareBtn5:active {
+            background: #00b33a;
+        }
+        
+        /* 第4行按钮2：#00E54A */
+        #squareBtn6 {
+            background: #00E54A;
+        }
+        #squareBtn6:hover {
+            background: #00cc42;
+        }
+        #squareBtn6:active {
+            background: #00b33a;
+        }
+
+        .square-btn:hover {
+            background: #cbd5e1;
+            box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.15);
+        }
+
+        .square-btn:active {
+            transform: scale(0.95);
+            background: #94a3b8;
+        }
+
+        /* 输入框样式 —— 文本居中 */
+        .input-field {
+            flex: 1;
+            min-width: 0;
+            height: 52px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 0 1.2rem;
+            font-size: 1rem;
+            background: white;
+            color: #0f172a;
+            outline: none;
+            transition: border 0.15s, box-shadow 0.15s;
+            font-family: inherit;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .input-field:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .input-field::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        /* 第六行：两个独立表格，横向排列，各占一半宽度 */
+        .row.table-row {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 0.25rem;
+            height: auto;
+            line-height: normal;
+        }
+
+        .table-wrapper {
+            flex: 1 1 calc(50% - 10px);
+            min-width: 300px;
+            height: auto;
+            display: block;
+        }
+
+        /* 表格本身的样式 */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            height: auto;
+            table-layout: fixed;
+        }
+
+        .styled-table th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 600;
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #e2e8f0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .styled-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .styled-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* 覆盖行高度限制 */
+        .row > .text-display,
+        .row > .square-btn,
+        .row > .input-field {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table-row .table-wrapper {
+            height: auto;
+            line-height: normal;
+            display: block;
+        }
+
+        .table-row .styled-table {
+            display: table;
+        }
+
+        /* 响应式：小屏幕下表格自动换行 */
+        @media (max-width: 900px) {
+            .grid-container {
+                padding: 1.5rem;
+                width: 95vw;
+            }
+            .table-wrapper {
+                flex: 1 1 100%;
+                min-width: 0;
+            }
+        }
+
+        /* 进一步优化宽屏显示：16:9时左右留白减少，内容更舒展 */
+        @media (min-width: 1600px) {
+            .grid-container {
+                width: min(92vw, 1600px);
+                max-width: 1600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- 第1行：文本显示，文本显示 -->
+        <div class="row" id="row1">
+            <div class="text-display" id="textDisplay1">Z31xWHd/PWt1THnS88NFrt/y</div>
+            <div class="text-display" id="textDisplay2">Z31xWHd/PWt1THnS88NFrt/y</div>
+        </div>
+
+        <!-- 第2行：正方形按钮， input，input，正方形按钮 -->
+        <div class="row" id="row2">
+            <button class="square-btn" id="squareBtn1" aria-label="方形按钮1"></button>
+            <input class="input-field" type="text" id="input1" placeholder="输入内容" value="CWZyUXURB3R3RmoFYQ==">
+            <input class="input-field" type="text" id="input2" placeholder="输入内容" value="CWB2UBsRbHF1TWsH">
+            <button class="square-btn" id="squareBtn2" aria-label="方形按钮2"></button>
+        </div>
+
+        <!-- 第3行：正方形按钮， input，input，正方形按钮 -->
+        <div class="row" id="row3">
+            <button class="square-btn" id="squareBtn3" aria-label="方形按钮3"></button>
+            <input class="input-field" type="text" id="input3" placeholder="输入内容" value="MCYoPiA=">
+            <input class="input-field" type="text" id="input4" placeholder="输入内容" value="JSBmCCoqPTg=">
+            <button class="square-btn" id="squareBtn4" aria-label="方形按钮4"></button>
+        </div>
+
+        <!-- 第4行：正方形按钮， input，input，正方形按钮 -->
+        <div class="row" id="row4">
+            <button class="square-btn" id="squareBtn5" aria-label="方形按钮5"></button>
+            <input class="input-field" type="text" id="input5" placeholder="输入内容" value="v/XQh+jvv+3MkOew">
+            <input class="input-field" type="text" id="input6" placeholder="输入内容" value="Hz0iBDwnNidlEzBZMXFbf0htd2p4GmdjfllzERwPASpoBWZkWX1Tb35+NV5icx0CLDs2K2VEdgRnDGA=">
+            <button class="square-btn" id="squareBtn6" aria-label="方形按钮6"></button>
+        </div>
+
+        <!-- 第5行：文本显示，文本显示 -->
+        <div class="row" id="row5">
+            <div class="text-display" id="textDisplay3">Z2NoVXN/eKfi53bR7Ps=</div>
+            <div class="text-display" id="textDisplay4">b31+V31uv+fXWr2N/g==</div>
+        </div>
+
+        <!-- 第6行：两个独立的5列表格，并排显示 -->
+        <div class="row table-row" id="row6">
+            <!-- 左侧表格（5列） -->
+            <div class="table-wrapper" id="tableWrapper1">
+                <table class="styled-table" id="tableLeft">
+                    <thead>
+                        <tr>
+                            <th id="tableLeftHeader1">时间</th>
+                            <th id="tableLeftHeader2">方法</th>
+                            <th id="tableLeftHeader3">路径</th>
+                            <th id="tableLeftHeader4">键</th>
+                            <th id="tableLeftHeader5">值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tableLeftCell1" title="ZGN0V2p/aG53QnkEbWtacl1rfg==">ZGN0V2p/aG53QnkEbWtacl1rfg==</td>
+                            <td id="tableLeftCell2" title="BhwVNQ==">BhwVNQ==</td>
+                            <td id="tableLeftCell3" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
+                            <td id="tableLeftCell4" title="ODwx">ODwx</td>
+                            <td id="tableLeftCell5" title="Z2N2TnV+aA==">Z2N2TnV+aA==</td>
+                        </tr>
+                        <tr>
+                            <td id="tableLeftCell6" title="ZGN0V2p/aG53QnkEbWtacl1rfg==">ZGN0V2p/aG53QnkEbWtacl1rfg==</td>
+                            <td id="tableLeftCell7" title="BhwVNQ==">BhwVNQ==</td>
+                            <td id="tableLeftCell8" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
+                            <td id="tableLeftCell9" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
+                            <td id="tableLeftCell10" title="MCYoPiA=">MCYoPiA=</td>
+                        </tr>
+                        <tr>
+                            <td id="tableLeftCell11" title="ZGN0V2p/aG53QnkEbWtacl1sfw==">ZGN0V2p/aG53QnkEbWtacl1sfw==</td>
+                            <td id="tableLeftCell12" title="BhwVNQ==">BhwVNQ==</td>
+                            <td id="tableLeftCell13" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
+                            <td id="tableLeftCell14" title="ODwx">ODwx</td>
+                            <td id="tableLeftCell15" title="v/XQh+jvv+3MkOew">v/XQh+jvv+3MkOew</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 右侧表格（5列） -->
+            <div class="table-wrapper" id="tableWrapper2">
+                <table class="styled-table" id="tableRight">
+                    <thead>
+                        <tr>
+                            <th id="tableRightHeader1">时间</th>
+                            <th id="tableRightHeader2">方法</th>
+                            <th id="tableRightHeader3">路径</th>
+                            <th id="tableRightHeader4">键</th>
+                            <th id="tableRightHeader5">值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tableRightCell1" title="ZGN0V2p/aG53QnkEbWtac11sdQ==">ZGN0V2p/aG53QnkEbWtac11sdQ==</td>
+                            <td id="tableRightCell2" title="BhwVNQ==">BhwVNQ==</td>
+                            <td id="tableRightCell3" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
+                            <td id="tableRightCell4" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
+                            <td id="tableRightCell5" title="JSBmCCoqPTg=">JSBmCCoqPTg=</td>
+                        </tr>
+                        <tr>
+                            <td id="tableRightCell6" title="ZGN0V2p/aG53QnkEbWtac11tdQ==">ZGN0V2p/aG53QnkEbWtac11tdQ==</td>
+                            <td id="tableRightCell7" title="BhwVNQ==">BhwVNQ==</td>
+                            <td id="tableRightCell8" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
+                            <td id="tableRightCell9" title="ODwx">ODwx</td>
+                            <td id="tableRightCell10" title="Hz0iBDwnNidlEzBZMXFbf0htd2p4GmdjfllzERwPASpoBWZkWX1Tb35+NV5icx0CLDs2K2VEdgRnDGA=">Hz0iBDwnNidlEzBZMXFbf0htd2p4GmdjfllzERwPASpoBWZkWX1Tb35+NV5icx0CLDs2K2VEdgRnDGA=</td>
+                        </tr>
+                        <tr>
+                            <td id="tableRightCell11" title="ZGN0V2p/aG53QnkEbWtac11tdQ==">ZGN0V2p/aG53QnkEbWtac11tdQ==</td>
+                            <td id="tableRightCell12" title="BhwVNQ==">BhwVNQ==</td>
+                            <td id="tableRightCell13" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
+                            <td id="tableRightCell14" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
+                            <td id="tableRightCell15" title="JSBmCCoqPTg=">JSBmCCoqPTg=</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 简单的交互：按钮点击控制台输出（保留，不影响替换） -->
+    <script>
+        (function() {
+            const allButtons = document.querySelectorAll('.square-btn');
+            allButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = e.currentTarget.id;
+                    console.log(`点击了按钮: ${id}`);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
