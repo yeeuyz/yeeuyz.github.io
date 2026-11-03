@@ -95,11 +95,18 @@
             align-items: center;
             justify-content: center;
             background: #f1f5f9;
-            border: 1.5px solid #cbd5e1;
+            border: 3px solid #cbd5e1;
             border-radius: 18px;
             color: #334155;
             box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.08);
         }
+
+        /* 分拆 5 个图标的边框颜色（仅边框颜色使用占位符，其余不变） */
+        #statusNode1 .node-icon { border-color: {{NC1}}; }
+        #statusNode2 .node-icon { border-color: {{NC2}}; }
+        #statusNode3 .node-icon { border-color: {{NC3}}; }
+        #statusNode4 .node-icon { border-color: {{NC4}}; }
+        #statusNode5 .node-icon { border-color: {{NC5}}; }
 
         .status-node .node-icon svg {
             width: 38px;
@@ -443,7 +450,7 @@
                         <line x1="11" y1="16" x2="17" y2="16"></line>
                     </svg>
                 </div>
-                <div class="node-label" id="statusNodeLabel1">Y2NoVnd/a2BqVWAGZX9fe1Z4ARI=</div>
+                <div class="node-label" id="statusNodeLabel1">YmtoUnF2eG9lTGoEemRbe0cfBA==</div>
             </div>
 
             <!-- 箭头：节点1 右侧，指向节点2 -->
@@ -530,32 +537,32 @@
 
         <!-- 第2行：正方形按钮， input，input，正方形按钮 -->
         <div class="row" id="row2">
-            <button class="square-btn" id="squareBtn1" aria-label="方形按钮1"></button>
+            <!--<button class="square-btn" id="squareBtn1" aria-label="方形按钮1"></button>-->
             <input class="input-field" type="text" id="input1" placeholder="输入内容" value="CWFzUHR/Bx9xQmoBZWQ=">
             <input class="input-field" type="text" id="input2" placeholder="输入内容" value="CWJzU3R/Bx9xQWEAbGlKPgI2JTU2Wg==">
-            <button class="square-btn" id="squareBtn2" aria-label="方形按钮2"></button>
+            <!--<button class="square-btn" id="squareBtn2" aria-label="方形按钮2"></button>-->
         </div>
 
         <!-- 第3行：正方形按钮， input，input，正方形按钮 -->
         <div class="row" id="row3">
-            <button class="square-btn" id="squareBtn3" aria-label="方形按钮3"></button>
+            <!--<button class="square-btn" id="squareBtn3" aria-label="方形按钮3"></button>-->
             <input class="input-field" type="text" id="input3" placeholder="输入内容" value="MCYoPicv">
             <input class="input-field" type="text" id="input4" placeholder="输入内容" value="JSBmCCoqPTg=">
-            <button class="square-btn" id="squareBtn4" aria-label="方形按钮4"></button>
+            <!--<button class="square-btn" id="squareBtn4" aria-label="方形按钮4"></button>-->
         </div>
 
         <!-- 第4行：正方形按钮， input，input，正方形按钮 -->
         <div class="row" id="row4">
-            <button class="square-btn" id="squareBtn5" aria-label="方形按钮5"></button>
-            <input class="input-field" type="text" id="input5" placeholder="输入内容" value="YmR1VHZ5">
-            <input class="input-field" type="text" id="input6" placeholder="输入内容" value="Hz0iBDwnNidlEzBZMXFYZVBtfHBsGm5mflgbChcEGkRpBmRjWH5RYGg9KBp2CCUJMSAzYHFabGhe">
-            <button class="square-btn" id="squareBtn6" aria-label="方形按钮6"></button>
+            <!--<button class="square-btn" id="squareBtn5" aria-label="方形按钮5"></button>-->
+            <input class="input-field" type="text" id="input5" placeholder="输入内容" value="YmR1VH19">
+            <input class="input-field" type="text" id="input6" placeholder="输入内容" value="Hz0iBDwnNidlEzBZMXFdZVBtfHBsGm5ldlIbChcEGkRpBmRjWHJTYGg9KBp2CCUJMSAzYHdHdgdhDGA=">
+            <!--<button class="square-btn" id="squareBtn6" aria-label="方形按钮6"></button>-->
         </div>
 
         <!-- 第5行：文本显示，文本显示 -->
         <div class="row" id="row5">
-            <div class="text-display" id="textDisplay3">Zn1zVHxuv+fXWr2N/g==</div>
-            <div class="text-display" id="textDisplay4">ZX1/UHVuv+fXWr2N/g==</div>
+            <div class="text-display" id="textDisplay3">Zn1zWXJuv+fXWr2N/g==</div>
+            <div class="text-display" id="textDisplay4">Yn12V3Zuv+fXWr2N/g==</div>
         </div>
 
         <!-- 第6行：两个独立的5列表格，并排显示 -->
@@ -574,39 +581,39 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td id="tableLeftCell1" title="ZGN0V2p/aW51RnkFbGtYfl1ocQ==">ZGN0V2p/aW51RnkFbGtYfl1ocQ==</td>
+                            <td id="tableLeftCell1" title="ZGN0V2p/aW51RnkFbGtYfV1odQ==">ZGN0V2p/aW51RnkFbGtYfV1odQ==</td>
                             <!--<td id="tableLeftCell2" title="{{LT2}}">{{LT2}}</td>-->
                             <td id="tableLeftCell3" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
                             <td id="tableLeftCell4" title="NSY0EyEgLB8hHCtqOjAHLw==">NSY0EyEgLB8hHCtqOjAHLw==</td>
                             <td id="tableLeftCell5" title="CWFzUHR/Bx9xQmoBZWQ=">CWFzUHR/Bx9xQmoBZWQ=</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell6" title="ZGN0V2p/aW51RnkFbGtYfl1ocQ==">ZGN0V2p/aW51RnkFbGtYfl1ocQ==</td>
+                            <td id="tableLeftCell6" title="ZGN0V2p/aW51RnkFbGtYfV1odQ==">ZGN0V2p/aW51RnkFbGtYfV1odQ==</td>
                             <!--<td id="tableLeftCell7" title="{{LT7}}">{{LT7}}</td>-->
                             <td id="tableLeftCell8" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
                             <td id="tableLeftCell9" title="ODwx">ODwx</td>
-                            <td id="tableLeftCell10" title="YmR1VHZ5eKLY+Q==">YmR1VHZ5eKLY+Q==</td>
+                            <td id="tableLeftCell10" title="YmR1VH19eKLY+Q==">YmR1VH19eKLY+Q==</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell11" title="ZGN0V2p/aW51RnkFbGtYfl1ocQ==">ZGN0V2p/aW51RnkFbGtYfl1ocQ==</td>
+                            <td id="tableLeftCell11" title="ZGN0V2p/aW51RnkFbGtYfV1odQ==">ZGN0V2p/aW51RnkFbGtYfV1odQ==</td>
                             <!--<td id="tableLeftCell12" title="{{LT12}}">{{LT12}}</td>-->
                             <td id="tableLeftCell13" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
                             <td id="tableLeftCell14" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
                             <td id="tableLeftCell15" title="MCYoPicv">MCYoPicv</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell16" title="ZGN0V2p/aW51RnkFbGtYfl1ofg==">ZGN0V2p/aW51RnkFbGtYfl1ofg==</td>
+                            <td id="tableLeftCell16" title="ZGN0V2p/aW51RnkFbGtYfV1ocg==">ZGN0V2p/aW51RnkFbGtYfV1ocg==</td>
                             <!--<td id="tableLeftCell17" title="{{LT17}}">{{LT17}}</td>-->
                             <td id="tableLeftCell18" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
                             <td id="tableLeftCell19" title="NSY0EyEgLB8hHCtqOjAHLw==">NSY0EyEgLB8hHCtqOjAHLw==</td>
                             <td id="tableLeftCell20" title="CWFzUHR/Bx9xQmoBZWQ=">CWFzUHR/Bx9xQmoBZWQ=</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell21" title="ZGN0V2p/aW51RnkFbGtYfl1ofg==">ZGN0V2p/aW51RnkFbGtYfl1ofg==</td>
+                            <td id="tableLeftCell21" title="ZGN0V2p/aW51RnkFbGtYfV1ocg==">ZGN0V2p/aW51RnkFbGtYfV1ocg==</td>
                             <!--<td id="tableLeftCell22" title="{{LT22}}">{{LT22}}</td>-->
                             <td id="tableLeftCell23" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>
                             <td id="tableLeftCell24" title="ODwx">ODwx</td>
-                            <td id="tableLeftCell25" title="YmR1VHZ5">YmR1VHZ5</td>
+                            <td id="tableLeftCell25" title="YmR1VH19">YmR1VH19</td>
                         </tr>
                     </tbody>
                 </table>
@@ -625,34 +632,34 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td id="tableRightCell1" title="ZGN0V2p/aW51RnkFbGtYfl1pdg==">ZGN0V2p/aW51RnkFbGtYfl1pdg==</td>
+                            <td id="tableRightCell1" title="ZGN0V2p/aW51RnkFbGtYfV1ofg==">ZGN0V2p/aW51RnkFbGtYfV1ofg==</td>
                             <!--<td id="tableRightCell2" title="{{RT2}}">{{RT2}}</td>-->
                             <td id="tableRightCell3" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
                             <td id="tableRightCell4" title="ODwx">ODwx</td>
-                            <td id="tableRightCell5" title="Hz0iBDwnNidlEzBZMXFYZVBtfHBsGm5mflgbChcEGkRpBmRjWH5RYGg9KBp2CCUJMSAzYHZabGhe">Hz0iBDwnNidlEzBZMXFYZVBtfHBsGm5mflgbChcEGkRpBmRjWH5RYGg9KBp2CCUJMSAzYHZabGhe</td>
+                            <td id="tableRightCell5" title="Hz0iBDwnNidlEzBZMXFdZVBtfHBsGm5ldlIbChcEGkRpBmRjWHJTYGg9KBp2CCUJMSAzYHdEdgdhDGA=">Hz0iBDwnNidlEzBZMXFdZVBtfHBsGm5ldlIbChcEGkRpBmRjWHJTYGg9KBp2CCUJMSAzYHdEdgdhDGA=</td>
                         </tr>
                         <tr>
-                            <td id="tableRightCell6" title="ZGN0V2p/aW51RnkFbGtYfl1pdg==">ZGN0V2p/aW51RnkFbGtYfl1pdg==</td>
+                            <td id="tableRightCell6" title="ZGN0V2p/aW51RnkFbGtYfV1ofg==">ZGN0V2p/aW51RnkFbGtYfV1ofg==</td>
                             <!--<td id="tableRightCell7" title="{{RT7}}">{{RT7}}</td>-->
                             <td id="tableRightCell8" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
                             <td id="tableRightCell9" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
                             <td id="tableRightCell10" title="JSBmCCoqPTg=">JSBmCCoqPTg=</td>
                         </tr>
                         <tr>
-                            <td id="tableRightCell11" title="ZGN0V2p/aW51RnkFbGtYfl1pcg==">ZGN0V2p/aW51RnkFbGtYfl1pcg==</td>
+                            <td id="tableRightCell11" title="ZGN0V2p/aW51RnkFbGtYfV1pdA==">ZGN0V2p/aW51RnkFbGtYfV1pdA==</td>
                             <!--<td id="tableRightCell12" title="{{RT12}}">{{RT12}}</td>-->
                             <td id="tableRightCell13" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
                             <td id="tableRightCell14" title="NSY0EyEgLB8hHCtqOjAHLw==">NSY0EyEgLB8hHCtqOjAHLw==</td>
                             <td id="tableRightCell15" title="CWJzU3R/Bx9xQWEAbGlKPgI2JTU2Wg==">CWJzU3R/Bx9xQWEAbGlKPgI2JTU2Wg==</td>
                         </tr>
                         <tr>
-                            <td id="tableRightCell16" title="ZGN0V2p/aW51RnkFbGtYfl1pcg==">ZGN0V2p/aW51RnkFbGtYfl1pcg==</td>
+                            <td id="tableRightCell16" title="ZGN0V2p/aW51RnkFbGtYfV1pdA==">ZGN0V2p/aW51RnkFbGtYfV1pdA==</td>
                             <!--<td id="tableRightCell17" title="{{RT17}}">{{RT17}}</td>-->
                             <td id="tableRightCell18" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
                             <td id="tableRightCell19" title="ODwx">ODwx</td>
-                            <td id="tableRightCell20" title="Hz0iBDwnNidlEzBZMXFYZVBtfHBsGm5mflgbChcEGkRpBmRjWH5RYGg9KBp2CCUJMSAzYHFabGhe">Hz0iBDwnNidlEzBZMXFYZVBtfHBsGm5mflgbChcEGkRpBmRjWH5RYGg9KBp2CCUJMSAzYHFabGhe</td>
+                            <td id="tableRightCell20" title="Hz0iBDwnNidlEzBZMXFdZVBtfHBsGm5ldlIbChcEGkRpBmRjWHJTYGg9KBp2CCUJMSAzYHdHdgdhDGA=">Hz0iBDwnNidlEzBZMXFdZVBtfHBsGm5ldlIbChcEGkRpBmRjWHJTYGg9KBp2CCUJMSAzYHdHdgdhDGA=</td>
                         </tr>
-                            <td id="tableRightCell21" title="ZGN0V2p/aW51RnkFbGtYfl1pcg==">ZGN0V2p/aW51RnkFbGtYfl1pcg==</td>
+                            <td id="tableRightCell21" title="ZGN0V2p/aW51RnkFbGtYfV1pdA==">ZGN0V2p/aW51RnkFbGtYfV1pdA==</td>
                             <!--<td id="tableRightCell22" title="{{RT22}}">{{RT22}}</td>-->
                             <td id="tableRightCell23" title="eTI2CGsjPzIaBiobJCg=">eTI2CGsjPzIaBiobJCg=</td>
                             <td id="tableRightCell24" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
