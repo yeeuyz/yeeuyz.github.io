@@ -61,130 +61,6 @@
         }
 
         /* ============================================================
-           顶部状态节点行（磁盘 / 下载 / 磁盘 / 计算 / 计算）
-           ============================================================ */
-        .status-node-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0;
-            flex-wrap: nowrap;
-            padding: 8px 0 2px 0;
-            min-height: 118px;
-            height: auto;
-            line-height: normal;
-        }
-
-        .status-node {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 auto;
-            min-width: 100px;
-            gap: 8px;
-            height: auto;
-            line-height: normal;
-        }
-
-        /* 节点图标：放大到 64px */
-        .status-node .node-icon {
-            width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f1f5f9;
-            border: 4px solid #cbd5e1;
-            border-radius: 18px;
-            color: #334155;
-            box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.08);
-        }
-
-        /* 分拆 5 个图标的边框颜色（仅边框颜色使用占位符，其余不变） */
-        #statusNode1 .node-icon { border-color: {{COLOR_NODE_BORDER_1}}; }
-        #statusNode2 .node-icon { border-color: #00E54A; }
-        #statusNode3 .node-icon { border-color: {{COLOR_NODE_BORDER_3}}; }
-        #statusNode4 .node-icon { border-color: #E52421; }
-        #statusNode5 .node-icon { border-color: #E52421; }
-
-        .status-node .node-icon svg {
-            width: 38px;
-            height: 38px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .status-node .node-label {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #475569;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100px;
-            line-height: 1.2;
-            letter-spacing: 0.01em;
-        }
-
-        /* 节点之间的动态箭头（头部朝右，虚线从左向右流动） */
-        .node-arrow {
-            flex: 1 1 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 64px;
-            min-width: 60px;
-            position: relative;
-            overflow: hidden;
-            color: #94a3b8;
-            padding: 0 4px;
-        }
-
-        .node-arrow .arrow-line {
-            position: relative;
-            width: 100%;
-            height: 2px;
-            background-image: repeating-linear-gradient(
-                to right,
-                #94a3b8 0px,
-                #94a3b8 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            background-size: 20px 2px;
-            animation: dashFlow 0.9s linear infinite;
-            border-radius: 2px;
-        }
-
-        /* 箭头头部：位于右端，朝右 */
-        .node-arrow .arrow-line::after {
-            content: '';
-            position: absolute;
-            right: -1px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-left: 11px solid #94a3b8;
-        }
-
-        @keyframes dashFlow {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 20px 0;
-            }
-        }
-
-        /* ============================================================
            第2/3/4行：正方形按钮 + 输入框
            ============================================================ */
 
@@ -352,7 +228,7 @@
         }
 
         .styled-table td {
-            padding: 8px 16px;
+            padding: 12px 16px;
             border-bottom: 1px solid #e2e8f0;
             color: #334155;
             vertical-align: middle;
@@ -442,79 +318,6 @@
 </head>
 <body>
     <div class="grid-container">
-        <!-- ===== 顶部状态节点行（磁盘 / 下载 / 磁盘 / 计算 / 计算） ===== -->
-        <div class="row status-node-row" id="statusNodeRow">
-            <!-- 节点1：磁盘 -->
-            <div class="status-node" id="statusNode1">
-                <div class="node-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                        <circle cx="7" cy="16" r="1"></circle>
-                        <line x1="11" y1="16" x2="17" y2="16"></line>
-                    </svg>
-                </div>
-                <div class="node-label" id="statusNodeLabel1">YmV1T3N7aWBqVWAGZX9fe1Z4ARI=</div>
-            </div>
-
-            <!-- 箭头：节点1 右侧，指向节点2 -->
-            <div class="node-arrow" aria-hidden="true">
-                <div class="arrow-line"></div>
-            </div>
-
-            <!-- 节点2：下载 -->
-            <div class="status-node" id="statusNode2">
-                <div class="node-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                </div>
-                <div class="node-label" id="statusNodeLabel2">suvNifnzvPjo</div>
-            </div>
-
-            <!-- 箭头：节点2 右侧，指向节点3 -->
-            <div class="node-arrow" aria-hidden="true">
-                <div class="arrow-line"></div>
-            </div>
-
-            <!-- 节点4：计算 -->
-            <div class="status-node" id="statusNode4">
-                <div class="node-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                        <line x1="8" y1="9" x2="16" y2="9"></line>
-                        <line x1="8" y1="13" x2="10" y2="13"></line>
-                        <line x1="13" y1="13" x2="16" y2="13"></line>
-                        <line x1="8" y1="17" x2="10" y2="17"></line>
-                        <line x1="13" y1="17" x2="16" y2="17"></line>
-                    </svg>
-                </div>
-                <div class="node-label" id="statusNodeLabel4">JSBmEDMrNg==</div>
-            </div>
-
-            <!-- 箭头：节点4 右侧，指向节点5 -->
-            <div class="node-arrow" aria-hidden="true">
-                <div class="arrow-line"></div>
-            </div>
-
-            <!-- 节点5：计算 -->
-            <div class="status-node" id="statusNode5">
-                <div class="node-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                        <line x1="8" y1="9" x2="16" y2="9"></line>
-                        <line x1="8" y1="13" x2="10" y2="13"></line>
-                        <line x1="13" y1="13" x2="16" y2="13"></line>
-                        <line x1="8" y1="17" x2="10" y2="17"></line>
-                        <line x1="13" y1="17" x2="16" y2="17"></line>
-                    </svg>
-                </div>
-                <div class="node-label" id="statusNodeLabel5">JSBmFSEgOyUrAQ==</div>
-            </div>
-        </div>
-
         <!-- 第1行：文本显示，文本显示 -->
         <!--<div class="row" id="row1">
             <div class="text-display" id="textDisplay1">{{TD1}}</div>
@@ -542,7 +345,7 @@
         <!-- 第4行：正方形按钮， input，input，正方形按钮 -->
         <div class="row" id="row4">
             <!--<button class="square-btn" id="squareBtn5" aria-label="方形按钮5"></button>-->
-            <input class="input-field" type="text" id="input5" placeholder="输入内容" value="ZGJpUHR+">
+            <input class="input-field" type="text" id="input5" placeholder="输入内容" value="ZWtpUHR+">
             <input class="input-field" type="text" id="input6" placeholder="输入内容" value="">
             <input class="input-field" type="text" id="input6p1" placeholder="输入内容" value="">
             <!--<button class="square-btn" id="squareBtn6" aria-label="方形按钮6"></button>-->
@@ -550,7 +353,7 @@
 
         <!-- 第5行：文本显示，文本显示 -->
         <div class="row" id="row5">
-            <div class="text-display" id="textDisplay3">YX13UHxuv+fXWr2N/g==</div>
+            <div class="text-display" id="textDisplay3">YX1yWHxuv+fXWr2N/g==</div>
             <div class="text-display" id="textDisplay4"></div>
             <div class="text-display" id="textDisplay5"></div>
         </div>
@@ -571,35 +374,35 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td id="tableLeftCell1" title="Z2N8UXx0bXQ=">Z2N8UXx0bXQ=</td>
+                            <td id="tableLeftCell1" title="Z2N8UHV0bXk=">Z2N8UHV0bXk=</td>
                             <!--<td id="tableLeftCell2" title="{{LT2}}">{{LT2}}</td>-->
                             <!--<td id="tableLeftCell3" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>-->
                             <td id="tableLeftCell4" title="ODwx">ODwx</td>
-                            <td id="tableLeftCell5" title="ZGNpUHR+">ZGNpUHR+</td>
+                            <td id="tableLeftCell5" title="ZWRpUHR+">ZWRpUHR+</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell6" title="Z2N8UXx0bXQ=">Z2N8UXx0bXQ=</td>
+                            <td id="tableLeftCell6" title="Z2N8UHV0bXk=">Z2N8UHV0bXk=</td>
                             <!--<td id="tableLeftCell7" title="{{LT7}}">{{LT7}}</td>-->
                             <!--<td id="tableLeftCell8" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>-->
                             <td id="tableLeftCell9" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
                             <td id="tableLeftCell10" title="MCYoPiA=">MCYoPiA=</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell11" title="Z2N8UX10aHE=">Z2N8UX10aHE=</td>
+                            <td id="tableLeftCell11" title="Z2N8UHZ0aHY=">Z2N8UHZ0aHY=</td>
                             <!--<td id="tableLeftCell12" title="{{LT12}}">{{LT12}}</td>-->
                             <!--<td id="tableLeftCell13" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>-->
                             <td id="tableLeftCell14" title="NSY0EyEgLB8hHCtqOjAHLw==">NSY0EyEgLB8hHCtqOjAHLw==</td>
                             <td id="tableLeftCell15" title="CWB1UXURB3R0TWgEZg==">CWB1UXURB3R0TWgEZg==</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell16" title="Z2N8UX10aHE=">Z2N8UX10aHE=</td>
+                            <td id="tableLeftCell16" title="Z2N8UHZ0aHY=">Z2N8UHZ0aHY=</td>
                             <!--<td id="tableLeftCell17" title="{{LT17}}">{{LT17}}</td>-->
                             <!--<td id="tableLeftCell18" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>-->
                             <td id="tableLeftCell19" title="ODwx">ODwx</td>
-                            <td id="tableLeftCell20" title="ZGJpUHR+">ZGJpUHR+</td>
+                            <td id="tableLeftCell20" title="ZWtpUHR+">ZWtpUHR+</td>
                         </tr>
                         <tr>
-                            <td id="tableLeftCell21" title="Z2N8UX10aHE=">Z2N8UX10aHE=</td>
+                            <td id="tableLeftCell21" title="Z2N8UHZ0aHY=">Z2N8UHZ0aHY=</td>
                             <!--<td id="tableLeftCell22" title="{{LT22}}">{{LT22}}</td>-->
                             <!--<td id="tableLeftCell23" title="eTI2CGsqNzcrGTZUMA5YZBch">eTI2CGsqNzcrGTZUMA5YZBch</td>-->
                             <td id="tableLeftCell24" title="JiEpBjYrKzM=">JiEpBjYrKzM=</td>
